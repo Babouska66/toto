@@ -1,0 +1,11 @@
+alerting:
+  alertmanagers:
+  - basic_auth:
+      password: pass
+      username: user
+    path_prefix: alertmanager/
+    proxy_url: 127.0.0.2
+    scheme: https
+    static_configs:
+    - targets:
+      - 127.0.0.1:9093
