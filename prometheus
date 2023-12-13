@@ -9,3 +9,17 @@ alerting:
     static_configs:
     - targets:
       - 127.0.0.1:9093
+
+
+[Unit]
+Description=Prometheus Alertmanager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/alertmanager --config.file=/etc/alertmanager/alertmanager.yml
+User=alertmanager
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
